@@ -10,6 +10,8 @@ typedef struct {
 } Artikal;
 
 int main() {
+    char tipKartice;
+    float stanjeRacuna;
     FILE *f;
     Artikal a[MAX];
     int n, i;
@@ -57,7 +59,25 @@ int main() {
 
         kusur = uplata - ukupno;
     }
+    if (kes == 'n') {
+        do {
+            printf("Da li je kartica debitna ili kreditna? (d/k): ");
+            scanf(" %c", &tipKartice);
+        } while (tipKartice != 'd' && tipKartice != 'k');
 
+        if (tipKartice == 'd') {
+            do {
+                printf("Unesite stanje na racunu (RSD): ");
+                scanf("%f", &stanjeRacuna);
+
+                if (stanjeRacuna < ukupno)
+                    printf("Nedovoljno sredstava na racunu!\n");
+
+            } while (stanjeRacuna < ukupno);
+
+            stanjeRacuna -= ukupno;
+        }
+    }
     time(&t);
 
     fprintf(f, "\n=============================\n");
@@ -82,7 +102,13 @@ int main() {
         fprintf(f, "Placeno: %.2f RSD\n", uplata);
         fprintf(f, "Kusur: %.2f RSD\n", kusur);
     } else {
-        fprintf(f, "Placanje: Kartica\n");
+            fprintf(f, "Placanje: Kartica\n");
+            if (tipKartice == 'd') {
+                fprintf(f, "Tip kartice: Debitna\n");
+                fprintf(f, "Preostalo stanje: %.2f RSD\n", stanjeRacuna);
+            } else {
+                fprintf(f, "Tip kartice: Kreditna\n");
+            }
     }
 
     fprintf(f, "=============================\n");
@@ -101,8 +127,12 @@ int main() {
     if (kes == 'y') {
         printf("Placeno: %.2f RSD\n", uplata);
         printf("Kusur: %.2f RSD\n", kusur);
-    } else {
+    } else if (kes == 'n') {       
         printf("Placanje: Kartica\n");
+        if (tipKartice == 'd')
+            printf("Preostalo stanje na racunu: %.2f RSD\n", stanjeRacuna);
+        else
+            printf("Tip kartice: Kreditna\n");
     }
 
     printf("Racun je sacuvan u fajlu Fisk.txt\n");
