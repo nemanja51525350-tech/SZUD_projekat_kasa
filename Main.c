@@ -106,6 +106,6 @@ int main() {
     }
 
     printf("Racun je sacuvan u fajlu Fisk.txt\n");
-    printf("Konflikt pocinje ovde");
+
     return 0;
 }
