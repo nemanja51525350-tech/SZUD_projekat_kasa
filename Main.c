@@ -105,7 +105,7 @@ int main() {
         printf("Placanje: Kartica\n");
     }
 
-    printf("Racun je sacuvan u fajlu Fiskalniaasdwdasdwasdads.txt\n")
+    printf("Racun je sacuvan u fajlu Fisk.txt\n");
 
     return 0;
 }
