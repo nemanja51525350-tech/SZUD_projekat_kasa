@@ -18,10 +18,16 @@ y → plaćanje kešom
 
 n → plaćanje karticom
 
-6. Ako je keš:
+6. Ako je kartica:
+
+d → plaćanje debitnom
+
+k → plaćanje kreditnom
+
+7. Ako je keš:
 uneti iznos koji je kupac platio
-7. program automatski izračunava kusur
-8. Račun se ispisuje na ekranu i snima u fajl
+8. program automatski izračunava kusur
+9. Račun se ispisuje na ekranu i snima u fajl
 # Fajlovi
 
 main.c – izvorni kod programa
@@ -36,3 +42,5 @@ GCC
 Dev-C++
 
 Code::Blocks
+# Novo:
+Uzeto je u vidu da li kupac koristi debitnu ili kreditnu karticu, i stanje njegovoga racuna.
