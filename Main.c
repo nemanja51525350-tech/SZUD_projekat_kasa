@@ -136,6 +136,6 @@ int main() {
     }
 
     printf("Racun je sacuvan u fajlu Fisk.txt\n");
-
+    printf("Ovo je kraj pocetak problema\n");
     return 0;
 }
